@@ -1,0 +1,19 @@
+﻿<Application x:Class="NetScannerWPF.App"
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:local="clr-namespace:NetScannerWPF"
+				StartupUri="MainWindow.xaml">
+    <Application.Resources>
+		<Style TargetType="{x:Type DataGridColumnHeader}">
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="BorderBrush" Value="Black"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Background" Value="GreenYellow"/>
+		</Style>
+
+		<Style TargetType="{x:Type DataGridCell}">
+			<Setter Property="TextBlock.TextAlignment" Value="Center" />
+		</Style>
+	</Application.Resources>
+</Application>
