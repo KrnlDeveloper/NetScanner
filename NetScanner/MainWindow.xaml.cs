@@ -32,7 +32,7 @@ namespace NetScanner
 		List<HostItem> hostList = null;
 
 		[DllImport("Iphlpapi.dll", EntryPoint = "SendARP")]
-		internal extern static Int32 SendArp(UInt32 DestIpAddress, Int32 SrcIpAddress, byte[] MacAddress, ref UInt32 MacAddressLength);
+		internal extern static UInt32 SendArp(UInt32 DestIpAddress, UInt32 SrcIpAddress, Byte[] MacAddress, ref UInt32 MacAddressLength);
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		private PhysicalAddress GetMACFromNetworkComputer(IPAddress IpAddress)
@@ -41,7 +41,7 @@ namespace NetScanner
 			UInt32 len = (UInt32)mac.Length;
 			Byte[] addressBytes = IpAddress.GetAddressBytes();
 
-			UInt32 dest = ((uint)addressBytes[3] << 24) + ((uint)addressBytes[2] << 16) + ((uint)addressBytes[1] << 8) + ((uint)addressBytes[0]);
+			UInt32 dest = ((UInt32)addressBytes[3] << 24) + ((UInt32)addressBytes[2] << 16) + ((UInt32)addressBytes[1] << 8) + ((UInt32)addressBytes[0]);
 
 			if (SendArp(dest, 0, mac, ref len) != 0)
 			{
